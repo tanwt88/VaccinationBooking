@@ -1,6 +1,11 @@
 import React, {useState,useEffect} from 'react';
+import DatePicker from 'react-datepicker';
 
 const registration = () => {
+    let Navigate = useNavigate();
+    const handleEditPage = () =>{
+    Navigate("/edit")
+    }
     const [Name,setName]= useState("");
     const [NRIC,setNRIC]= useState("");
     const [Jabsnumber]=React.useState([
@@ -36,6 +41,12 @@ const registration = () => {
         }
         
     ]);
+
+    const [Date,setDate]=useState(new Date());
+
+    const handleCalendarClose = () => console.log("Calendar closed");
+    const handleCalendarOpen = () => console.log("Calendar opened");
+
     const [timeslot,setTimeslot]=React.useState([
         {
             label: "09:00",
@@ -106,6 +117,14 @@ const registration = () => {
         <option value="Tampines Polyclinic">Tampines Polyclinic</option>
         </select>
 
+        <DatePicker
+        selected={date}
+        onChange={(date) => setDate(date)}
+        onCalendarClose={handleCalendarClose}
+        onCalendarOpen={handleCalendarOpen}
+        />
+
+
         <select id = "timeslot">
         <option value="09:00">09:00</option>
         <option value="10:00">10:00</option>
@@ -119,6 +138,7 @@ const registration = () => {
         </select>
 
     <button type="Submit">Submit</button>
+    <button type="Update" onClick={handleEditPage}>Update Appointment</button>
 
 </form>
 
