@@ -3,6 +3,7 @@ import React, {useState,useEffect} from 'react';
 const EditPage = () => {
   const [Name,setName]= useState("");
   const [NRIC,setNRIC]= useState("");
+
   return (
     <div>
     <label for="name">Name:</label>
@@ -17,7 +18,7 @@ const EditPage = () => {
     </select>
 
     <select id = "edit">
-    <option value="appointment">`${appt.timeslot} at ${appt.venue}, ${appt.type} ${appt.jabsnumber}`</option>
+    <option value="appointment">`${timeslot} at ${venue}, ${type} ${jabsnumber}`</option>
     </select>
 
 

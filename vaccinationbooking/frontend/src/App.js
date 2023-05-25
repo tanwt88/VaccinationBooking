@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Registration from './registration';
 import EditPage from './EditPage'

@@ -1,11 +1,25 @@
 import React, {useState,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 
-const registration = () => {
+const Registration = () => {
     let Navigate = useNavigate();
+    
     const handleEditPage = () =>{
     Navigate("/edit")
+    };
+
+    const handleJabsNumber=(e)=>{
+        e.preventDefault();
+        console.log('selected jabs number.');
     }
+    
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log('clicked submit.');
+      }
+
+
     const [Name,setName]= useState("");
     const [NRIC,setNRIC]= useState("");
     const [Jabsnumber]=React.useState([
@@ -46,6 +60,7 @@ const registration = () => {
 
     const handleCalendarClose = () => console.log("Calendar closed");
     const handleCalendarOpen = () => console.log("Calendar opened");
+
 
     const [timeslot,setTimeslot]=React.useState([
         {
@@ -97,7 +112,7 @@ const registration = () => {
 
   return (
 <div>
-<form onSubmit={e=>onSubmit(e)} >
+<form onSubmit={handleSubmit} >
         <label for="name">Name:</label>
         <input type = "text" id="name" value= "name" onChange={e=>setName(e.target.value)}/>
         <label for="nric">NRIC:</label>
@@ -118,7 +133,7 @@ const registration = () => {
         </select>
 
         <DatePicker
-        selected={date}
+        selected={Date}
         onChange={(date) => setDate(date)}
         onCalendarClose={handleCalendarClose}
         onCalendarOpen={handleCalendarOpen}
@@ -146,4 +161,4 @@ const registration = () => {
   )
 }
 
-export default registration;
+export default Registration;
